@@ -25,7 +25,13 @@ public class UserController {
 
     @PostMapping("save")
     public ResponseEntity<User> saveUser(@RequestBody User user){
+        // URI = name and Location (URL + URN)
+        // URL = Location
+        // URN = name
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/user/save").toUriString());
+        //ResponseEntity.ok برای درخواست 200 می باشد
+        //ResponseEntity.created  برای درخواست 201 میباشد
+        //تفاوت با درخواست 200 این است که یک درخواست با جزئیات میسازیم و درخواست دقیق بر میگردانیم
         return ResponseEntity.created(uri).body(userService.saveUser(user));
     }
     @PostMapping("add/roletouser")
