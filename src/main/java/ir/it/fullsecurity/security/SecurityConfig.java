@@ -44,6 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         /*CustomAuthenticationFilter customAuthenticationFilter = new CustomAuthenticationFilter(authenticationManagerBean());
         customAuthenticationFilter.setFilterProcessesUrl("/api/login");*/
+        http.cors().and();
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(STATELESS);
         //http.authorizeRequests().antMatchers("/swagger-ui.html","swagger-ui/index.html").permitAll();
